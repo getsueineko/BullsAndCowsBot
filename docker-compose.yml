@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+
+  BullsAndCowsBot:
+    container_name: BullsAndCowsBot
+    image: bullsandcowsbot:latest
+    env_file:
+      - extra_vars.env
+    restart: always
+    volumes:
+    - type: bind
+      source: ${PWD}/bot_stat.sqlite
+      target: /opt/App_BullsAndCows/bot_stat.sqlite
