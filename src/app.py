@@ -1,22 +1,30 @@
-# !python3
-# !/usr/bin/python3
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import config
 import telebot
 import random
+import sys
 from telebot import types
 from emoji import emojize
 import sqlite3
+from loguru import logger
+
+logger.remove()
+logger.add(
+    sink=sys.stdout,  # вывод в stdout
+    colorize=True,    # цветной вывод
+    format="<green>{time}</green> <level>{message}</level>",  # формат логов
+)
 
 
 bot = telebot.TeleBot(config.token)
 
-smiley = emojize(":smiley:", use_aliases=True)
-imp = emojize(":imp:", use_aliases=True)
-pensive = emojize(":pensive:", use_aliases=True)
-heart_eyes = emojize(":heart_eyes:", use_aliases=True)
-crown = emojize(":crown:", use_aliases=True)
+smiley = emojize(":smiley:", language='alias')
+imp = emojize(":imp:", language='alias')
+pensive = emojize(":pensive:", language='alias')
+heart_eyes = emojize(":heart_eyes:", language='alias')
+crown = emojize(":crown:", language='alias')
 
 user_dict = {}
 
@@ -146,7 +154,8 @@ def process_game(message):
         return
     else:
         user.user_num = user_num
-        print(user.__dict__)
+        logger.debug("User dictionary: {}", user.__dict__)
+        # print(user.__dict__)
         bot_num = list(user.bot_num)
         bot_num_output = ''.join(map(str, user.bot_num))
         if len(user_num) != 4 or not user_num.isdigit():
