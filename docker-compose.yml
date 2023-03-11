@@ -1,9 +1,9 @@
-version: '3.8'
+version: '3.9'
 
 services:
 
-  BullsAndCowsBot:
-    container_name: BullsAndCowsBot
+  bullsandcowsbot:
+    container_name: bullsandcowsbot
     image: bullsandcowsbot:latest
     env_file:
       - extra_vars.env
@@ -11,4 +11,4 @@ services:
     volumes:
     - type: bind
       source: ${PWD}/bot_stat.sqlite
-      target: /opt/App_BullsAndCows/bot_stat.sqlite
+      target: /bot/bot_stat.sqlite
