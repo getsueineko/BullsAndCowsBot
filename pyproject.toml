@@ -1,17 +1,17 @@
 [tool.poetry]
-name = "Bulls and Cows"
-version = "0.9.0"
-description = ""
+name = "bullsandcowsbot"
+version = "0.9.1"
+description = "Bulls and Cows (also known as Cows and Bulls or Pigs and Bulls) is a code-breaking mind or paper and pencil game for two or more players"
 authors = ["Tom Emv"]
+readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
-pyTelegramBotAPI = "^3.8.1"
-emoji = "^1.2.0"
+python = "^3.11"
+pytelegrambotapi = "^4.10.0"
+emoji = "^2.2.0"
+loguru = "^0.6.0"
 
-[tool.poetry.dev-dependencies]
-pytest = "^5.2"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
