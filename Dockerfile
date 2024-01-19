@@ -1,6 +1,6 @@
 ARG WORKDIR=/bot
 
-FROM python:3.11-alpine AS builder
+FROM python:3.13.0a3-alpine AS builder
 
 ENV PIP_DISABLE_PIP_VERSION_CHECK=1 \
     PIP_NO_CACHE_DIR=1 \
@@ -41,7 +41,7 @@ COPY src/ .
 RUN chmod -R g+rwX $WORKDIR
 
 
-FROM python:3.11-alpine AS final
+FROM python:3.13.0a3-alpine AS final
 
 ARG WORKDIR
 WORKDIR $WORKDIR
