@@ -1,3 +1,4 @@
 loguru==0.6.0
 pytelegrambotapi==4.10.0
 emoji==2.2.0
+requests>=2.32.4 # not directly required, pinned by Snyk to avoid a vulnerability
